@@ -2,6 +2,7 @@
  All machine learning algorithms I have learned in one repository
 
 # All Algorithms:
+- Cost function for univariable linear regression
 
 # Setup
 1. Create a vitual environment
