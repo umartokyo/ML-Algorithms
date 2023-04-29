@@ -3,6 +3,7 @@
 
 # All Algorithms:
 - Cost function for univariable linear regression
+- Gradient function for univariable linear regression
 
 # Setup
 1. Create a vitual environment
