@@ -11,6 +11,7 @@
 - Prediction function for multivariable linear regression
 - Cost function for multivariable linear regression
 - Gradient function for multivariable linear regression
+- Gradient descent function for multivariable linear regression
 
 # Setup
 1. Create a vitual environment

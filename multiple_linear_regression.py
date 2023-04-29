@@ -1,5 +1,6 @@
 # Libraries...
 import numpy as np
+import copy
 
 # Example variebles...
 X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
@@ -37,3 +38,13 @@ def compute_gradient(X, y, w, b):
     dj_dw /= m
     dj_db /= m
     return dj_db, dj_dw
+
+
+def gradient_descent(X, y, w_in, b_in, alpha, num_iters, gradient_function):
+    w = copy.deepcopy(w_in)
+    b = b_in
+    for i in range(num_iters):
+        dj_db, dj_dw = gradient_function(X, y, w, b)
+        w = w - alpha * dj_dw
+        b = b - alpha * dj_db
+    return w, b
