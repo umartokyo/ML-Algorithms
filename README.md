@@ -8,18 +8,21 @@
 - Gradient function for univariable linear regression
 - Gradiet descent function for univariable linear regression
 - Example function
-## ```multiple_linear_regression.py```
+## ```multivariable_linear_regression.py```
 - Prediction function for multivariable linear regression
 - Cost function for multivariable linear regression
 - Gradient function for multivariable linear regression
 - Gradient descent function for multivariable linear regression
 - Example function
+- Z Score normalization function
+- Z score normalization function for new features
+- Example function for Z Score normalization
 ## Coming soon:
-- Z Score normalization
-- Mean normalization
-- Min-Max scaling
 - Feature Engineering
 - Polynomial Regression
+## Ideas for future:
+- Mean normalization
+- Min-Max scaling
 
 # Setup
 1. Create a vitual environment
