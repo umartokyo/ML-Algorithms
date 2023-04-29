@@ -1,12 +1,6 @@
 # Libraries...
 import numpy as np
 
-x_train = np.array([1.0, 1.7, 2.0, 2.5, 3.0, 3.2,])
-y_train = np.array([250, 300, 480, 430, 630, 730,])
-
-m = x_train.shape[0]
-m = len(x_train)
-
 # Cost function for univariable linear regression
 def compute_cost(x, y, w, b):
     m = x.shape[0]
@@ -44,13 +38,17 @@ def gradient_descent(x, y, w_in, b_in, alpha, num_iters, gradient_function):
     return w, b
 
 def example():
-    x_example = np.array([1.0, 1.7, 2.0, 2.5, 3.0, 3.2,])
-    y_example = np.array([250, 300, 480, 430, 630, 730,])
+    x_example = np.array([1.0, 2.0]) 
+    y_example = np.array([300.0, 500.0])
     w_init = 0
     b_init = 0
     iterations = 10000
     alpha_init = 1.0e-2
-    w_final, b_final = gradient_descent(x_example, y_example, w_init, b_init, alpha_init, iterations, gradient_descent)
-    print(f"The final function: {w_final:8.4f} * x + {b_final:8.4f}")
+    w_final, b_final = gradient_descent(x_example, y_example, w_init, b_init, alpha_init, iterations, compute_gradient)
+    print(f"\nThe final function: f_wb = {w_final:0.4f} * x + {b_final:0.4f}")
+    print("\nPredictions:")
+    print(f"1000 sqm house prediction {w_final * 1.0 + b_final:0.1f} ")
+    print(f"1200 sqm house prediction {w_final * 1.2 + b_final:0.1f} ")
+    print(f"2000 sqm house prediction {w_final * 2.0 + b_final:0.1f} \n")
 
 example()
