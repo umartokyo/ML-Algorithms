@@ -33,13 +33,15 @@ def compute_gradient(x, y, w, b):
     return dj_dw, dj_db
 
 # Gradient descent function for univariable linear regression
-def gradient_descent(x, y, w_in, b_in, alpha, num_iters, gradient_function):
+def gradient_descent(x, y, w_in, b_in, alpha, num_iters, cost_function, gradient_function):
     b = b_in
     w = w_in
-    for _ in range(num_iters):
+    for i in range(num_iters):
         dj_dw, dj_db = gradient_function(x, y, w, b)
         b = b - alpha * dj_db
         w = w - alpha * dj_dw
+        if i % (num_iters // 10) == 0:
+            print(f"Progress: {int(i / num_iters * 100)}%, Iteration: {i}, Cost: {cost_function(X, y, w, b):0.2f}")
     return w, b
 
 def example():
@@ -49,7 +51,7 @@ def example():
     b_init = 0
     iterations = 10000
     alpha_init = 1.0e-2
-    w_final, b_final = gradient_descent(x_example, y_example, w_init, b_init, alpha_init, iterations, compute_gradient)
+    w_final, b_final = gradient_descent(x_example, y_example, w_init, b_init, alpha_init, iterations, compute_cost, compute_gradient)
     print(f"\nThe final function: f_wb = {w_final:0.4f} * x + {b_final:0.4f}")
     print("\nPredictions:")
     print(f"1000 sqm house prediction {w_final * 1.0 + b_final:0.1f} ")
