@@ -35,3 +35,4 @@ def compute_gradient(x, y, w, b):
 
     return dj_dw, dj_db
 
+# Gradient descent function for univariable linear regression
