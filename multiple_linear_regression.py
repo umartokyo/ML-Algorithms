@@ -46,6 +46,7 @@ def gradient_descent(X, y, w_in, b_in, alpha, num_iters, cost_function, gradient
     return w, b
 
 def example():
+    print("\nLinear Regression:")
     # Paramenters: X: [Size in sqm, num of bedrooms, num of floors, age] y: price of the house
     X_example = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
     y_example = np.array([460, 232, 178])
@@ -61,3 +62,33 @@ def example():
     print(f"Cost: {compute_cost(X_example, y_example, w_final, b_final):0.2f}\n")
 
 example()
+
+# Z-score normalization function
+def zscore_normalize_features(X):
+    mu = np.mean(X, axis=0)
+    sigma = np.std(X, axis=0)
+    X_norm = (X - mu) / sigma
+    return (X_norm, mu, sigma)
+
+def example_z():
+    print("\nLinear Regression with z-score normalization:")
+    # Parameters: X: [Size in sqm, num of bedrooms, num of floors, age] y: price of the house
+    X_example = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
+    y_example = np.array([460, 232, 178])
+    
+    # Normalize the features
+    X_norm, X_mu, X_sigma = zscore_normalize_features(X_example)
+    
+    w_init = np.zeros(X_example.shape[1])
+    b_init = 0.
+    iterations = 1000
+    alpha_init = 0.01
+    w_final, b_final = gradient_descent(X_norm, y_example, w_init, b_init, alpha_init, iterations, compute_cost, compute_gradient)
+    
+    print(f"\nThe final function: X * {w_final} + {b_final}")
+    print("\nPredictions:")
+    for i in range(X_norm.shape[0]):
+        print(f"prediction: {np.dot(X_norm[i], w_final) + b_final:0.2f}, target value: {y_example[i]}, ")
+    print(f"Cost: {compute_cost(X_norm, y_example, w_final, b_final):0.2f}\n")
+
+example_z()
