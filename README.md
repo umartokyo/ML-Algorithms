@@ -3,12 +3,14 @@
 
 # All Algorithms:
 ## ```univariable_linear_regression.py```
+- Prediction function for univariable linear regression
 - Cost function for univariable linear regression
 - Gradient function for univariable linear regression
 - Gradiet descent function for univariable linear regression
 ## ```multiple_linear_regression.py```
 - Prediction function for multivariable linear regression
 - Cost function for multivariable linear regression
+- Gradient function for multivariable linear regression
 
 # Setup
 1. Create a vitual environment

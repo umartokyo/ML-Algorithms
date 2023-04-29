@@ -24,3 +24,16 @@ def compute_cost(X, y, w, b):
     cost = cost / (2 * m)
     return cost
 
+# Gradient function for multivariable linear regression
+def compute_gradient(X, y, w, b):
+    m,n = X.shape
+    dj_dw = np.zeros((n,))
+    dj_db = 0.
+    for i in range(m):
+        cost = (np.dot(X[i], w) + b) - y[i]
+        for j in range(n):
+            dj_dw[j] += cost * X[i, j]
+        dj_db += cost
+    dj_dw /= m
+    dj_db /= m
+    return dj_db, dj_dw
