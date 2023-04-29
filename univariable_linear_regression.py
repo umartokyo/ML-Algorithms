@@ -1,6 +1,11 @@
 # Libraries...
 import numpy as np
 
+# Prediction function for univariable linear regression
+def predict(x, w, b):
+    prediction = w * x + b
+    return prediction
+
 # Cost function for univariable linear regression
 def compute_cost(x, y, w, b):
     m = x.shape[0]
