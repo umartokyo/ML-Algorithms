@@ -7,7 +7,7 @@
 - Gradient function for univariable linear regression
 - Gradiet descent function for univariable linear regression
 ## ```multiple_linear_regression.py```
-- 
+- Cost function for multivariable linear regression
 
 # Setup
 1. Create a vitual environment
