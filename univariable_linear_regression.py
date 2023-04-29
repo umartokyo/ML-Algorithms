@@ -31,7 +31,7 @@ def compute_gradient(x, y, w, b):
 def gradient_descent(x, y, w_in, b_in, alpha, num_iters, gradient_function):
     b = b_in
     w = w_in
-    for i in range(num_iters):
+    for _ in range(num_iters):
         dj_dw, dj_db = gradient_function(x, y, w, b)
         b = b - alpha * dj_db
         w = w - alpha * dj_dw
