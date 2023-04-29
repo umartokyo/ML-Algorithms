@@ -43,11 +43,10 @@ def gradient_descent(X, y, w_in, b_in, alpha, num_iters, cost_function, gradient
         b = b - alpha * dj_db
         if i % (num_iters // 10) == 0:
             print(f"Progress: {int(i / num_iters * 100)}%, Iteration: {i}, Cost: {cost_function(X, y, w, b):0.2f}")
-
-
     return w, b
 
 def example():
+    # Paramenters: X: [Size in sqm, num of bedrooms, num of floors, age] y: price of the house
     X_example = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
     y_example = np.array([460, 232, 178])
     w_init = np.zeros(X_example.shape[1])
