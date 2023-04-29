@@ -14,6 +14,12 @@
 - Gradient function for multivariable linear regression
 - Gradient descent function for multivariable linear regression
 - Example function
+## Coming soon:
+- Z Score normalization
+- Mean normalization
+- Min-Max scaling
+- Feature Engineering
+- Polynomial Regression
 
 # Setup
 1. Create a vitual environment
