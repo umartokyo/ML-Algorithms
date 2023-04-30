@@ -17,12 +17,13 @@
 - Z Score normalization function
 - Z score normalization function for new features
 - Example function for Z Score normalization
+- Example for Polynomial Regression
 ## Coming soon:
-- Feature Engineering
-- Polynomial Regression
+- 
 ## Ideas for future:
 - Mean normalization
 - Min-Max scaling
+- Feature Engineering
 
 # Setup
 1. Create a vitual environment

@@ -2,6 +2,8 @@
 import numpy as np
 import copy
 
+#
+
 #Prediction function for multivariable linear regression
 def predict(x, w, b):
     prediction = np.dot(x, w) + b
@@ -97,13 +99,41 @@ def example_z():
     for i in range(X_norm.shape[0]):
         print(f"prediction: {np.dot(X_norm[i], w_final) + b_final:0.2f}, target value: {y_example[i]}, ")
     print(f"Cost: {compute_cost(X_norm, y_example, w_final, b_final):0.5f}")
-
     # Predicting:
     X_new = np.array([2500, 4, 2, 30])
     X_new_mean = zscore_normalize_new_features(X_new, X_mu, X_sigma)
     prediction = np.dot(X_new_mean, w_final) + b_final
     print(f"\nPrediction for House with 2500 square meters, 4 bedrooms, 2 floors and of 30 years old is {prediction:0.2f}$\n")
 
+# Example for polynomial regression
+def example_poly():
+    print("\nPolynomial:")
+    x = np.arange(0,20,1)
+    y_example = x**2
+    X_example = np.c_[x, x**2, x**3]
+    # Normalizing X:
+    X_norm, X_mu, X_sigma = zscore_normalize_features(X_example)
+    # Gradient descent:
+    w_init = np.zeros(X_example.shape[1])
+    b_init = 0.
+    iterations = 1000
+    alpha_init = 0.01
+    w_final, b_final = gradient_descent(X_norm, y_example, w_init, b_init, alpha_init, iterations, compute_cost, compute_gradient)
+    # Output:
+    print(f"\nThe final function: X * {w_final} + {b_final}")
+    # Checking Predictions:
+    print("\nPredictions (normalized features with polynomial regression):")
+    for i in range(X_norm.shape[0]):
+        print(f"prediction: {np.dot(X_norm[i], w_final) + b_final:0.2f}, target value: {y_example[i]}, ")
+    print(f"Cost: {compute_cost(X_norm, y_example, w_final, b_final):0.5f}")
+    # Prediction:
+    x_new = 20
+    X_new = np.array([x_new, x_new**2, x_new**3])
+    X_new_mean = zscore_normalize_new_features(X_new, X_mu, X_sigma)
+    prediction = np.dot(X_new_mean, w_final) + b_final
+    print(f"\nPrediction for x = {x_new} is {prediction:0.2f}\n")
+
 # Examples
 example()
 example_z()
+example_poly()
