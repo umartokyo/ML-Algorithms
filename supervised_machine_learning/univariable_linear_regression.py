@@ -41,7 +41,7 @@ def gradient_descent(x, y, w_in, b_in, alpha, num_iters, cost_function, gradient
         b = b - alpha * dj_db
         w = w - alpha * dj_dw
         if i % (num_iters // 10) == 0:
-            print(f"Progress: {int(i / num_iters * 100)}%, Iteration: {i}, Cost: {cost_function(X, y, w, b):0.2f}")
+            print(f"Progress: {int(i / num_iters * 100)}%, Iteration: {i}, Cost: {cost_function(x, y, w, b):0.2f}")
     return w, b
 
 def example():
