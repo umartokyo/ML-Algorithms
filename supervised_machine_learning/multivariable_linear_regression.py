@@ -43,7 +43,7 @@ def gradient_descent(X, y, w_in, b_in, alpha, num_iters, cost_function, gradient
         dj_db, dj_dw = gradient_function(X, y, w, b)
         w = w - alpha * dj_dw
         b = b - alpha * dj_db
-        if i % (num_iters // 10) == 0:
+        if i % (num_iters // 100) == 0:
             print(f"Progress: {int(i / num_iters * 100)}%, Iteration: {i}, Cost: {cost_function(X, y, w, b):0.2f}")
     return w, b
 
@@ -54,7 +54,7 @@ def example():
     y_example = np.array([460, 232, 178])
     w_init = np.zeros(X_example.shape[1])
     b_init = 0.
-    iterations = 1000 # Cost = 53 with iterations = 10000000
+    iterations = 1000 # Cost = 53 with iterations = 10,000,000 Cost = 0 with iterations = 50,000,000
     alpha_init = 5.0e-7
     w_final, b_final = gradient_descent(X_example, y_example, w_init, b_init, alpha_init, iterations, compute_cost, compute_gradient)
     print(f"\nThe final function: X * {w_final} + {b_final}")
